@@ -65,8 +65,8 @@ const Navigation = () => {
         : 'bg-black/10 backdrop-blur-sm w-full max-w-4xl rounded-full border border-white/20'
     }`}>
       <div className="px-6 lg:px-8">
-        <div className="flex justify-center items-center h-16 relative">
-          {/* Centered navigation, logo removed */}
+        <div className="flex items-center justify-between h-16 w-full relative">
+          {/* Left: Navigation links */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Link
@@ -97,12 +97,12 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Language Switcher */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+          {/* Right: Sign In / Sign Up and Language Switcher */}
+          <div className="hidden md:flex items-center space-x-3">
             <select
               value={language}
               onChange={e => setLanguage(e.target.value)}
-              className="bg-white/80 text-red-700 font-bold rounded-full px-4 py-1 shadow-md border-2 border-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all duration-300 hover:bg-white"
+              className="ml-2 bg-white/80 text-red-700 font-bold rounded-full px-4 py-1 shadow-md border-2 border-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 transition-all duration-300 hover:bg-white"
             >
               <option value="en">EN</option>
               <option value="kz">KZ</option>
