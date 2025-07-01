@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolashak College - Excellence in Education and Research</title>
+    <meta name="description" content="Bolashak College - A leading educational institution fostering innovation, creativity, and excellence in education." />
+    <meta name="author" content="Bolashak College" />
+
+    <meta property="og:title" content="Bolashak College - Excellence in Education and Research" />
+    <meta property="og:description" content="Bolashak College - A leading educational institution fostering innovation, creativity, and excellence in education." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/img/college/cover.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@bolashakcollege" />
+    <meta name="twitter:image" content="/img/college/cover.jpg" />
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23B91C1C'/><text y='80' font-size='80' fill='white' text-anchor='middle' x='50' font-family='Arial, sans-serif' font-weight='bold'>S</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+      /* System fonts */
+      .font-georgia { font-family: Georgia, 'Times New Roman', serif; }
+      .font-georgia-bold { font-family: Georgia, 'Times New Roman', serif; font-weight: bold; }
+      .font-helvetica { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+      /* Logo font transition */
+      #fixed-logo-block span {
+        transition: color 0.5s, font-family 0.7s;
+        font-family: Georgia, 'Times New Roman', serif;
+      }
+      #fixed-logo-block[data-font="modern"] span {
+        font-family: 'Montserrat', Georgia, 'Times New Roman', serif;
+      }
+      #fixed-logo-block[data-color="black"] span {
+        color: black;
+      }
+    </style>
+  </head>
+
+  <body class="font-georgia">
+    <div id="fixed-logo-block" style="position:fixed;top:1rem;left:1rem;z-index:9999;pointer-events:auto;display:flex;align-items:center;gap:1rem;transition:opacity 0.5s;">
+      <a href="/" style="display:flex;align-items:center;gap:1rem;pointer-events:auto;text-decoration:none;">
+        <img src="/img/logo2.png" alt="Bolashak Logo" style="width:5rem;height:5rem;object-fit:contain;">
+        <span style="font-family:Georgia,serif;font-weight:bold;font-size:2.5rem;line-height:1.1;color:white;">
+          Bolashak<br>College
+        </span>
+      </a>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Smoothly fade out the logo/text block as you scroll down
+      const logoBlock = document.getElementById('fixed-logo-block');
+      window.addEventListener('scroll', () => {
+        const maxScroll = 120; // px after which it is fully faded
+        const scrollY = window.scrollY;
+        let opacity = 1;
+        if (scrollY > 0) {
+          opacity = Math.max(0, 1 - scrollY / maxScroll);
+        }
+        logoBlock.style.opacity = opacity;
+      });
+
+      // Font transition: loop between Georgia and Montserrat
+      let fontState = false;
+      let fontInterval = null;
+      function startFontLoop() {
+        fontInterval = setInterval(() => {
+          if (!logoBlock.hasAttribute('data-color')) { // Only animate if not About page
+            fontState = !fontState;
+            if (fontState) {
+              logoBlock.setAttribute('data-font', 'modern');
+            } else {
+              logoBlock.removeAttribute('data-font');
+            }
+          }
+        }, 2000); // 2 seconds per transition
+      }
+      startFontLoop();
+
+      // Color change on About page (robust polling)
+      function updateLogoColor() {
+        if (window.location.pathname.toLowerCase().includes('/about')) {
+          logoBlock.setAttribute('data-color', 'black');
+        } else {
+          logoBlock.removeAttribute('data-color');
+        }
+      }
+      setInterval(updateLogoColor, 100);
+    </script>
+    
+    <!-- Chaindesk Chatbot Integration -->
+    <script type="module">
+      (async () => {
+        const Chatbox = (await import('https://cdn.jsdelivr.net/npm/@chaindesk/embeds@latest/dist/chatbox/index.js')).default;
+        const widget = await Chatbox.initBubble({
+          agentId: 'cmcist6i700s8v1n5uaeyhswt',
+          initialMessages: [
+            'Hello! How are you doing today?',
+            'How can I help you?'
+          ]
+        });
+        // Optionally, you can open/close/toggle the widget here
+        // widget.open();
+        // widget.close();
+        // widget.toggle();
+      })();
+    </script>
+  </body>
+</html>
