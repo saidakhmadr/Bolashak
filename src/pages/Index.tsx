@@ -117,7 +117,7 @@ const Index = () => {
               </span>
             </div>
             <h1 className="text-6xl md:text-8xl font-georgia-bold mb-8 animate-scale-in leading-tight">
-              Превосходство в образовании
+              Добро пожаловать в колледж Болашак!
             </h1>
             <p className="text-2xl md:text-3xl mb-12 animate-fade-in font-georgia leading-relaxed max-w-4xl mx-auto" 
                style={{ animationDelay: '0.3s' }}>
@@ -131,10 +131,13 @@ const Index = () => {
               >
                 Подать заявку
               </Link>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-red-700 px-10 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3 font-helvetica backdrop-blur-sm text-lg">
+              <Link
+                to="/news#campus-tour"
+                className="border-2 border-white text-white hover:bg-white hover:text-red-700 px-10 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center justify-center space-x-3 font-helvetica backdrop-blur-sm text-lg"
+              >
                 <Play className="w-6 h-6" />
                 Тур по кампусу
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -292,6 +292,29 @@ const News = () => {
         </div>
       </div>
 
+      {/* Campus Tour Videos Section */}
+      <div id="campus-tour" className="py-20 bg-gradient-to-r from-blue-900 via-purple-900 to-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold mb-8 text-center">Тур по кампусу</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="flex flex-col items-center">
+              <video controls className="rounded-2xl shadow-2xl w-full max-w-lg aspect-video border-4 border-blue-700">
+                <source src="/img/video3.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает видео.
+              </video>
+              <div className="mt-4 text-lg font-semibold">Видео-тур 1</div>
+            </div>
+            <div className="flex flex-col items-center">
+              <video controls className="rounded-2xl shadow-2xl w-full max-w-lg aspect-video border-4 border-purple-700">
+                <source src="/img/video4.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает видео.
+              </video>
+              <div className="mt-4 text-lg font-semibold">Видео-тур 2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Newsletter Signup */}
       <div className="py-20 bg-red-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
